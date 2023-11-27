@@ -276,8 +276,9 @@ func (evb *EventBroker) handleCustomConnection(message_type uint8, message Event
 					sent = true
 				}
 			}
+			receivers[key] = EventReceiver{Addr: consumer.Addr, Sent: sent}
 		}
-		receivers[key] = EventReceiver{Addr: consumer.Addr, Sent: sent}
+
 	}
 
 	//генерируем уникальный ID сообщения
